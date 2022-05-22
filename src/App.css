@@ -126,7 +126,6 @@ input[type=checkbox]:checked + label {
 }
 
 .del-position {
-  display: flex;
-  position: fixed;
-  right: 786px;
+  margin-left: auto;
+  padding-right: 27px;
 }
