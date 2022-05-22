@@ -1,0 +1,132 @@
+html {
+  background-color: #EBEBEB;
+}
+
+#container {
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.box {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(65, 64, 64, 0.3);
+}
+
+.heading {
+  background-color: #FFD9E4;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgb(124, 124, 124);
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200px;
+  width: 313px;
+}
+
+input[type=text]:focus   {
+  outline: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1em auto;
+  align-items: center;
+  /* gap: 0.5em; */
+}
+
+input[type=checkbox] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  /* font: inherit; */
+  /* width and height will change size of box */
+  width: 1.15em;
+  height: 1.15em;
+  /* currentColor will change border color */
+  border: 0.15em solid gray;
+  /* will change curving of the corners: circle */
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  /* places the check in the checkbox */
+  display: grid;
+  place-content: center;
+}
+
+input[type=checkbox]::before {
+  content: "";
+  /* height and width needed for the checkmark */
+  width: 0.65em;
+  height: 0.65em;
+  /* transition stuff */
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  transform-origin: bottom left;
+  /* checkmark shape */
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+  background-color: white;
+}
+
+input[type="checkbox"]:checked {
+  background: #FFD9E4;
+  border: 0px;
+}
+
+input[type=checkbox]:checked + label {
+  text-decoration: line-through;
+}
+
+.addBtn {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #FFD9E4;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+.addBtn-1:hover,
+.addBtn-1:focus {
+  transform: translateY(-3px);
+}
+
+.delBtn {
+  border-color: transparent;
+  background-color: transparent;
+  color: lightgrey;
+  font-size: 15px;
+}
+
+.delBtn-1:hover,
+.delBtn-1:focus {
+  transform: translateY(-3px);
+  color: #FFD9E4;
+}
+
+.del-position {
+  display: flex;
+  position: fixed;
+  right: 786px;
+}
