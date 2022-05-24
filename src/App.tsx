@@ -2,12 +2,14 @@ import React, { FC, ChangeEvent, useState } from 'react'; //FC is functional com
 import './App.css';
 import {ITask} from './interfaces';
 import ShowTask from './Components/ShowTask';
+import Modal from './Components/Modal'
 
 //this code gets inserted in the index.tsx file
 const App: FC = () => {
 
   const [task, setTask] = useState<string>("");
   const [list, setList] = useState<ITask[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
       setTask(event.target.value);
@@ -17,7 +19,8 @@ const App: FC = () => {
     const newTask = {taskName: task};
 
     if (!task.trim()) {
-      alert("Um, it's empty...");
+      //alert("Um, it's empty...");
+      setIsModalOpen(true);
     } else {
       setList([...list, newTask]);
       console.log(list);
@@ -46,9 +49,11 @@ const App: FC = () => {
 
         <div className="item">
           <input type="text" id="input" name="task" value={task} placeholder="Add Task..." onChange={handleChange}/>
-          <button type="submit" className="addBtn addBtn-1" onClick={addTask}> + </button> 
+          <button type="submit" className="addBtn addBtn-1" onClick={addTask}> + </button>
         </div> {/* end input and button div */}
       </div>
+
+      {isModalOpen && <Modal closeModal={setIsModalOpen}/>}
       
     </div> //end BIG Div
   );
